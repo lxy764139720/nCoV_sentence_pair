@@ -187,10 +187,10 @@ def do_train(mode='bert', filename='roberta', lastfour=False, LR=1e-5, DR=0.2, e
 
         if (ext):
             checkpoint = ModelCheckpoint(
-                '../user_data/model_data/' + filename + '_weights/' + str(nfold) + '_ext.weights',
+                './models' + filename + '_weights/' + str(nfold) + '_ext.weights',
                 monitor='val_loss', save_weights_only=True, save_best_only=True, verbose=1)
         else:
-            checkpoint = ModelCheckpoint('../user_data/model_data/' + filename + '_weights/' + str(nfold) + '.weights',
+            checkpoint = ModelCheckpoint('./models/' + filename + '_weights/' + str(nfold) + '.weights',
                                          monitor='val_loss', save_weights_only=True, save_best_only=True, verbose=1)
 
         model.fit_generator(train_generator.forfit(),
